@@ -31,10 +31,8 @@ const loginform = () => {
                 };
             };
         });
-    }
+    };
 
-    
-    
     event.preventDefault();
 }
 
