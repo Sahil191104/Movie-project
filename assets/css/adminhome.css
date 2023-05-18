@@ -1,0 +1,192 @@
+body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	/* min-height: 100vh; */
+	font-family: 'Jost', sans-serif;
+	background: #f6f5f7;
+}
+
+.main {
+	width: 350px;
+	height: 400px;
+	overflow: hidden;
+	border-radius: 10px;
+	margin-left: 10%;
+	background: #FFFFFF;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+label {
+	font-size: 2.3em;
+	justify-content: center;
+	display: flex;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+	margin-top: 10%;
+	color: #000;
+}
+
+input {
+	width: 70%;
+	height: 40px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+#button {
+	width: 40%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 40px;
+	outline: none;
+	border: none;
+	border-radius: 30px;
+	transition: .2s ease-in;
+	cursor: pointer;
+	margin-bottom: 40px;
+}
+
+#chk:checked~.cinema {
+	transform: translateY(-500px);
+}
+
+#chk:checked~.cinema label {
+	transform: scale(1);
+}
+
+#chk:checked~.signup label {
+	transform: scale(.6);
+}
+
+.haed {
+	text-align: center;
+	align-items: center;
+	height: 100px;
+}
+
+.haed h2 {
+	font-size: 35px;
+	color: white;
+	padding: 25px;
+}
+
+.admin {
+	height: 100vh;
+	width: 250px;
+	overflow: hidden;
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#cinematable {
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
+	background-color: #fff;
+	border-radius: 10px;
+}
+
+button {
+	width: 70%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	border: 1px solid #fff;
+	background: transparent;
+	font-size: 1em;
+	font-weight: bold;
+	margin-top: 20px;
+	outline: none;
+	border-radius: 30px;
+	transition: .2s ease-in;
+	cursor: pointer;
+	margin-bottom: 40px;
+}
+
+#btnadmin,
+#btnadmin1 {
+	width: 70px;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	font-size: 1em;
+	border: 1px solid #FF4B2B;
+	background: #FF4B2B;
+	font-weight: bold;
+	outline: none;
+	border-radius: 30px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+#btnadmin {
+	margin-left: 10px;
+}
+
+#btnadmin1 {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#cinematable {
+	display: none;
+	position: absolute;
+	top: 10%;
+	right: 233px;
+	color: #000;
+	background: #FFFFFF;
+
+}
+
+#cinematable tr th {
+	padding: 20px;
+	font-size: 18px;
+}
+
+#cinematable tr th:nth-child(4) {
+	padding: 20px 58px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#cinematable tr td{
+	padding: 0 10px;
+}
+
+#cinematable tr td:nth-child(4) {
+	display: flex;
+}
+
+#cinematable tbody {
+	text-align: center;
+}
+
+.main {
+	display: none;
+	/* display: inline-block; */
+}
