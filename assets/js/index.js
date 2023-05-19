@@ -1,4 +1,4 @@
-let loginformRef =document.getElementById("login_form");
+let loginformRef = document.getElementById("login_form");
 
 const loginform = () => {
     let localdata = JSON.parse(localStorage.getItem("register"));
@@ -18,24 +18,22 @@ const loginform = () => {
     //     localStorage.setItem("register", JSON.stringify(localdata));
     // }
 
-    if(emaillogin === 'sahilrupareliya95@gamil.com'){
-        if(passwordlogin === 'sahil123'){
+    if (emaillogin === 'sahilrupareliya95@gamil.com') {
+        if (passwordlogin === 'sahil123') {
             alert('The login successful.');
-            window.location="./admin/adminhome.html";
+            window.location = "../admin/adminhome.html";
         };
-    } else {
-        localdata.map((value)=>{
-            if(emaillogin === value.email){
-                if(passwordlogin === value.password){
-                    window.location ="./user/userhome.html";
-                };
-            };
-        });
     }
 
-    
-    
+    localdata.map((value) => {
+        if (emaillogin === value.email) {
+            if (passwordlogin === value.password) {
+                window.location = "./user/userhome.html";
+            };
+        };
+    });
+
     event.preventDefault();
 }
 
-loginformRef.addEventListener("submit",loginform);
+loginformRef.addEventListener("submit", loginform);

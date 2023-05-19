@@ -4,29 +4,29 @@ let update = false;
 let uid = null;
 // let cinemaarr = []
 
-const cinema =() => {
+const cinema = () => {
     console.log("dfs");
-    document.getElementById("formcinema").style.display ='block';
+    document.getElementById("formcinema").style.display = 'block';
     event.preventDefault();
 }
 
 const displayData = (cinemaname, cinemalocaton, cinemafacilites, cid) => {
     let tr = document.createElement("tr");
-    tr.setAttribute("id","row"+cid);
+    tr.setAttribute("id", "row" + cid);
 
     let td = document.createElement("td");
-    td.setAttribute("id","bordertd");
+    td.setAttribute("id", "bordertd");
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
-    td3.setAttribute("id","bordertd1");
+    td3.setAttribute("id", "bordertd1");
 
     let button = document.createElement("button");
-    button.setAttribute("id","btnadmin");
+    button.setAttribute("id", "btnadmin");
     button.setAttribute("onclick", "dataEdit(" + cid + ")");
 
     let button1 = document.createElement("button");
-    button1.setAttribute("id","btnadmin1");
+    button1.setAttribute("id", "btnadmin1");
     button1.setAttribute("onclick", "dataRemove(" + cid + ")");
     let tdvle = document.createTextNode(cinemaname);
     let tdvle1 = document.createTextNode(cinemalocaton);
@@ -61,11 +61,11 @@ const dataEdit = (cid) => {
     document.getElementById("name").value = upadatenew[0].name;
     document.getElementById("locaton").value = upadatenew[0].locaton;
     document.getElementById("facilites").value = upadatenew[0].facilites;
-    
+
     update = true;
     uid = cid;
 }
-    
+
 const dataRemove = (cid) => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let trref = document.getElementById("row" + cid);
@@ -102,7 +102,7 @@ const handleupdate = () => {
             return a;
         };
     });
-    localdata[uid]=updatevalue;
+    localdata[uid] = updatevalue;
     localStorage.setItem("cinema", JSON.stringify(updatevalue));
     console.log(updatevalue);
 
@@ -116,9 +116,9 @@ const handleupdate = () => {
 }
 
 const handledeisplay = () => {
-    if(update){
-        handleupdate(); 
-    }else{
+    if (update) {
+        handleupdate();
+    } else {
         cinemaFormUser();
     }
     event.preventDefault();
@@ -154,20 +154,20 @@ const cinemaFormUser = () => {
         }]));
         // localStorage.setItem("cinema", JSON.stringify(localdata));
     };
-    
+
     displayData(cinemaname, cinemalocaton, cinemafacilites, cid);
-    document.getElementById("cinematable").style .display ='inline-block';
+    document.getElementById("cinematable").style.display = 'inline-block';
     event.preventDefault();
 }
 
-const Useronload = () =>{
+const Useronload = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    if(localdata){
-        localdata.map((a) =>{
-            displayData(a.name, a.locaton,  a.facilites, a.id);
-            document.getElementById("cinematable").style .display ='inline-block';
-            document.getElementById("formcinema").style .display ='block';
+    if (localdata) {
+        localdata.map((a) => {
+            displayData(a.name, a.locaton, a.facilites, a.id);
+            document.getElementById("cinematable").style.display = 'inline-block';
+            document.getElementById("formcinema").style.display = 'block';
         });
     };
 };
