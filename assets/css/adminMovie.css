@@ -1,112 +1,141 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
 body {
 	margin: 0;
 	padding: 0;
+	position: relative;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	background: #f6f5f7;
 }
 
-#chk {
-	/* display: none; */
+.main {
+	width: 380px;
+	height: auto;
+	overflow: hidden;
+	border-radius: 10px;
+	margin-left: 30%;
+	background: #FFFFFF;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-/* .signup{
-	position: relative;
-	width:100%;
-	height: 100%;
-} */
-form label {
-	font-size: 20px;
-	/* color: #fff; */
-	font-size: 2.3em;
-	justify-content: center;
+form {
 	display: flex;
-	/* margin: 60px; */
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
+	flex-direction: column;
 }
 
-input {
-	width: 10%;
+h3 {
+	margin-top: 20px;
+	margin-bottom: 0;
+	font-size: 2rem;
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#time-table {
+	display: flex;
+	/* margin: 10px 0; */
+}
+
+#time-form {
+	margin: 14px 0;
+}
+
+#time-form h4 {
+	display: flex;
+	align-items: center;
+	margin-left: 47px;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+input,
+textarea {
+	width: 70%;
 	height: 20px;
 	background: #e0dede;
 	justify-content: center;
 	display: flex;
-	margin: 20px auto;
+	margin: 14px auto;
 	padding: 10px;
 	border: none;
 	outline: none;
 	border-radius: 5px;
 }
 
-#button {
+#time {
+	margin-left: 10px;
+	margin-top: 0;
+	margin-bottom: 0;
+	width: 20%;
+}
+
+#time1 {
+	margin-left: 6.5rem;
+	margin-top: 3px;
+	margin-bottom: 0;
+	width: 20%;
+}
+
+textarea {
+	height: 80px;
+	color: #000;
+}
+
+select {
+	margin: 14px 0;
+	margin-left: 47px;
+	width: 30%;
+	height: 40px;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	border: 1px solid #FF416C;
+	background-color: #FF416C;
+	padding: 10px;
+	font-size: 1em;
+	font-weight: bold;
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+#btnMovie {
 	width: 40%;
 	height: 40px;
-	margin: 10px auto;
 	justify-content: center;
 	display: block;
 	color: #fff;
 	border: 1px solid #FF4B2B;
 	background-color: #FF4B2B;
+	padding: 10px;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 40px;
 	outline: none;
 	border: none;
 	border-radius: 30px;
 	transition: .2s ease-in;
 	cursor: pointer;
-	margin-bottom: 40px;
+	margin-bottom: 2rem;
 }
 
-.login a{
-	color: #FF4B2B;
-}
-
-#fontlable {
-	font-weight: bold;
-	font-size: 60px;
-}
-
-span {
-	margin: 4.6rem;
-}
-
-.login {
-    padding: 15px;
-	width: 1200px;
-	height: 700px;
-	background: #FFFFFF;
-	border-radius: 10px;
-	/* transform: translateY(-180px); */
-	transition: .8s ease-in-out;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.login label {
-	color: black;
-	transform: scale(.6);
-}
-
-#chk:checked~.login {
+#chk:checked~.MovieFom {
 	transform: translateY(-500px);
 }
 
-#chk:checked~.login label {
+#chk:checked~.MovieFom label {
 	transform: scale(1);
 }
 
 #chk:checked~.signup label {
 	transform: scale(.6);
 }
-
 
 .haed {
 	text-align: center;
@@ -115,15 +144,113 @@ span {
 }
 
 .haed h2 {
-	font-size: 35px;
+	font-size: 40px;
 	color: white;
-	padding: 10px;
+	font-weight: bold;
 }
 
 .admin {
 	height: 100vh;
 	width: 250px;
 	overflow: hidden;
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.admin button a {
+	color: #fff;
+	text-decoration: none;
+}
+
+#cinematable {
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+		0 10px 10px rgba(0, 0, 0, 0.22);
+	background-color: #fff;
 	border-radius: 10px;
-	
+}
+
+button {
+	width: 70%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	border: 1px solid #fff;
+	background: transparent;
+	font-size: 1em;
+	font-weight: bold;
+	/* margin-top: 20px; */
+	outline: none;
+	border-radius: 30px;
+	transition: .2s ease-in;
+	cursor: pointer;
+	margin-bottom: 40px;
+}
+
+#btnadmin,
+#btnadmin1 {
+	width: 70px;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	font-size: 1em;
+	border: 1px solid #FF4B2B;
+	background: #FF4B2B;
+	font-weight: bold;
+	outline: none;
+	border-radius: 30px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+
+#btnadmin {
+	margin-left: 10px;
+}
+
+#btnadmin1 {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#cinematable {
+	display: none;
+	position: absolute;
+	top: 10%;
+	right: 233px;
+	color: #000;
+	background: #FFFFFF;
+}
+
+#cinematable tr th {
+	padding: 20px;
+	font-size: 18px;
+}
+
+#cinematable tr th:nth-child(4) {
+	padding: 20px 58px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#cinematable tr td {
+	padding: 0 10px;
+}
+
+#cinematable tr td:nth-child(4) {
+	display: flex;
+}
+
+#cinematable tbody {
+	text-align: center;
+}
+
+.main {
+	/* display: none; */
+	/* display: inline-block; */
 }

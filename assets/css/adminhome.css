@@ -84,9 +84,10 @@ input {
 }
 
 .haed h2 {
-	font-size: 35px;
+	font-size: 40px;
 	color: white;
 	padding: 25px;
+	font-weight: bold;
 }
 
 .admin {
@@ -123,7 +124,7 @@ button {
 	background: transparent;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 20px;
+	margin-top: 40px;
 	outline: none;
 	border-radius: 30px;
 	transition: .2s ease-in;
@@ -192,6 +193,6 @@ button {
 }
 
 .main {
-	display: none;
+	/* display: none; */
 	/* display: inline-block; */
 }

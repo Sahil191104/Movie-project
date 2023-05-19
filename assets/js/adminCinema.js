@@ -6,7 +6,13 @@ let uid = null;
 
 const cinema = () => {
     console.log("dfs");
-    document.getElementById("formcinema").style.display = 'block';
+    window.location = "../admin/adminCinema.html"
+    event.preventDefault();
+}
+
+const Movie = () => {
+    console.log("dfs");
+    window.location = "../admin/adminMovie.html"
     event.preventDefault();
 }
 

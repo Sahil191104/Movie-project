@@ -10,18 +10,43 @@
 </head>
 
 <body>
+    <div class="admin">
+        <div class="haed">
+            <h2>Admin</h2>
+        </div>
+        <button onclick="cinema()">add cinema</button>
+        <button onclick="Movie()">add movie</button>
+    </div>
 
-    <div class="main">
-        <div class="login">
-            <form id="login_form">
-                <input type="email" name="email" placeholder="Email" required="" id="email">
-                <input type="password" name="pswd" placeholder="Password" required="" id="password">
-                <input type="submit" id="button">
+    <div class="main" id="FormMovie">
+        <div class="MovieFom">
+            <h3>Movie</h3>
+            <form id="Movie_form">
+                <input type="text" name="name" placeholder="Name" required="" id="moname">
+                <textarea name="Discription" id="moviedis" placeholder="Description"></textarea>
+                <select name="Movie" id="cinema-name">
+                    <option value="cinema">Cinema</option>
+                </select>
+
+                <div id="time-form">
+                    <div id="time-table">
+                        <h4>Time:</h4>
+                        <input type="text" id="time" placeholder="Time">
+                        <button>+</button>
+                    </div>
+                    <div id="time-display">
+                    </div>
+                </div>
+
+                <input type="file" id="Moviefile">
+
+                <input type="submit" id="btnMovie">
             </form>
         </div>
     </div>
 
     <script src="../assets/js/adminMovie.js"></script>
+    <script src="../assets/js/adminCinema.js"></script>
 
 </body>
 
