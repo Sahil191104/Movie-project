@@ -28,36 +28,54 @@ const Movieonload = () => {
     });
 };
 
-const hadlebtn = () => {
-    let formnewref = document.getElementById("time-display");
+const addbtn = () => {
+    let randomMo = Math.floor(Math.random() * 1000);
+
     console.log("bfgb");
-    let formtag = document.createElement("form");
+    let formnewref = document.getElementById("time-display");
+
+    let formdiv = document.createElement("div");
+    formdiv.classList.add("inputmovie");
+    formdiv.setAttribute("id", "row" + randomMo);
 
     let btninput1 = document.createElement("input");
+    btninput1.setAttribute("id","time");
+    btninput1.setAttribute("type","text");
     btninput1.setAttribute("placeholder","Time");
-    formtag.appendChild(btninput1);
+    formdiv.appendChild(btninput1);
 
     let btninput3 = document.createElement("button");
-    btninput4.setAttribute("onclick","addbtn()");
-    btninput3.setAttribute("id","btn2");
+    btninput3.setAttribute("onclick","addbtn()");
+    btninput3.setAttribute("id","btn1");
     let btninput3Text = document.createTextNode("+");
     btninput3.appendChild(btninput3Text);
-    formtag.appendChild(btninput3);
+    formdiv.appendChild(btninput3);
 
     let btninput4 = document.createElement("button");
-    btninput4.setAttribute("onclick","removebtn()");
-    btninput3.setAttribute("id","btn1");
+    btninput4.setAttribute("onclick","removebtn("+randomMo+")");
+    btninput4.setAttribute("id","btn2");
     let btninput4Text = document.createTextNode("-");
     btninput4.appendChild(btninput4Text);
-    formtag.appendChild(btninput4);
+    formdiv.appendChild(btninput4);
 
-    formnewref.appendChild(formtag);
+    formnewref.appendChild(formdiv);
+
+    event.preventDefault();
+}
+
+const removebtn = (randomMo) => {
+    let trref = document.getElementById("row" + randomMo);
+
+    trref.remove();
+
+    event.preventDefault();
 }
 
 const handleMovie = () => {
     console.log("scdc");
     let Movieame =document.getElementById("moname").value;
     let MovieDiscription =document.getElementById("moviedis").value;
+    let MovieTime =document.getElementById("time").value;
     let MovieFile =document.getElementById("Moviefile").value;
 
     let randomMo = Math.floor(Math.random() * 1000);
@@ -69,6 +87,7 @@ const handleMovie = () => {
             id: randomMo,
             name: Movieame,
             desc:MovieDiscription,
+            time:[MovieTime],
             poster:MovieFile
         });
         localStorage.setItem("Movie", JSON.stringify(localDatamovie));
@@ -77,6 +96,7 @@ const handleMovie = () => {
             id: randomMo,
             name: Movieame,
             desc:MovieDiscription,
+            time:[MovieTime],
             poster:MovieFile
         }]));
     };

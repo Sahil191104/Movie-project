@@ -23,15 +23,15 @@ const loginform = () => {
             alert('The login successful.');
             window.location = "../admin/adminhome.html";
         };
-    }
-
-    localdata.map((value) => {
-        if (emaillogin === value.email) {
-            if (passwordlogin === value.password) {
-                window.location = "./user/userhome.html";
+    } else {
+        localdata.map((value) => {
+            if (emaillogin === value.email) {
+                if (passwordlogin === value.password) {
+                    window.location = "./user/userhome.html";
+                };
             };
-        };
-    });
+        });
+    }
 
     event.preventDefault();
 }

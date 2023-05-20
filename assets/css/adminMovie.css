@@ -53,8 +53,9 @@ h3 {
 	font-weight: bold;
 }
 
-input,
-textarea {
+textarea,
+#Moviefile,
+#moname {
 	width: 70%;
 	height: 20px;
 	background: #e0dede;
@@ -67,11 +68,28 @@ textarea {
 	border-radius: 5px;
 }
 
-#time {
+#time-display #time {
+	margin-left: 104px;
+	/* margin-top: 4px; */
+}
+
+#time,
+#inbtn {
+	height: 20px;
+	border: none;
+	outline: none;
+	background: #e0dede;
 	margin-left: 10px;
 	margin-top: 0;
 	margin-bottom: 0;
 	width: 20%;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+#inbtn {
+	margin-top: 3px;
+	margin-left: 6.5rem;
 }
 
 #time1 {
@@ -122,6 +140,7 @@ select {
 	border-radius: 30px;
 	transition: .2s ease-in;
 	cursor: pointer;
+	margin: 14px auto;
 	margin-bottom: 2rem;
 }
 
@@ -172,7 +191,13 @@ select {
 	border-radius: 10px;
 }
 
-button {
+.inputmovie {
+	display: flex;
+}
+
+button,
+#btn1,
+#btn2 {
 	width: 70%;
 	height: 40px;
 	margin: 10px auto;
@@ -189,6 +214,22 @@ button {
 	transition: .2s ease-in;
 	cursor: pointer;
 	margin-bottom: 40px;
+}
+
+#time-display #btn1,
+#time-display #btn2{
+	margin: 0px 0px 2px 2px;
+}
+
+#btn,
+#btn1,
+#btn2 {
+	height: 42px;
+	width: 40px;
+	background-color: #e0dede;
+	color: rgb(190, 190, 190);
+	margin: 0 134px 2px 2px;
+	border-radius: 5px;
 }
 
 #btnadmin,
