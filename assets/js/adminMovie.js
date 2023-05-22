@@ -9,9 +9,10 @@ const Movie = () => {
     window.location = "../admin/adminMovie.html"
     event.preventDefault();
 }
+let arr = [];
 
-let update = false;
-let id = null;
+// let update = false;
+// let id = null;
 
 let MovieformRef = document.getElementById("Movie_form");
 
@@ -25,7 +26,7 @@ const Movieonload = () => {
         let optiontex = document.createTextNode(v.name);
 
         optionEle.appendChild(optiontex);
-        optionEle.setAttribute("value",v.id);
+        optionEle.setAttribute("value", v.id);
 
         optionref.appendChild(optionEle);
     });
@@ -53,21 +54,22 @@ const addbtn = () => {
     formdiv.setAttribute("id", "row" + randomMo);
 
     let btninput1 = document.createElement("input");
-    btninput1.setAttribute("id","time");
-    btninput1.setAttribute("type","text");
-    btninput1.setAttribute("placeholder","Time");
+    btninput1.setAttribute("id", "time");
+    btninput1.setAttribute("name", "time");
+    btninput1.setAttribute("type", "time");
+    btninput1.setAttribute("placeholder", "Time");
     formdiv.appendChild(btninput1);
 
     let btninput3 = document.createElement("button");
-    btninput3.setAttribute("onclick","addbtn()");
-    btninput3.setAttribute("id","btn1");
+    btninput3.setAttribute("onclick", "addbtn()");
+    btninput3.setAttribute("id", "btn1");
     let btninput3Text = document.createTextNode("+");
     btninput3.appendChild(btninput3Text);
     formdiv.appendChild(btninput3);
 
     let btninput4 = document.createElement("button");
-    btninput4.setAttribute("onclick","removebtn("+randomMo+")");
-    btninput4.setAttribute("id","btn2");
+    btninput4.setAttribute("onclick", "removebtn(" + randomMo + ")");
+    btninput4.setAttribute("id", "btn2");
     let btninput4Text = document.createTextNode("-");
     btninput4.appendChild(btninput4Text);
     formdiv.appendChild(btninput4);
@@ -85,7 +87,7 @@ const removebtn = (randomMo) => {
     event.preventDefault();
 }
 
-const displayData = (randomMo, Movieame, MovieDiscription, MovieTime, MovieFile) => {
+const displayData = (randomMo, Movieame, MovieDiscription, time, MovieFile) => {
 
     let timeForm = document.getElementById("tablebody");
 
@@ -103,7 +105,7 @@ const displayData = (randomMo, Movieame, MovieDiscription, MovieTime, MovieFile)
     tr.appendChild(td2);
 
     let td3 = document.createElement("td");
-    let td3Text = document.createTextNode(MovieTime);
+    let td3Text = document.createTextNode(time);
     td3.appendChild(td3Text);
     tr.appendChild(td3);
 
@@ -158,10 +160,19 @@ const dataRemove = (randomMo) => {
 
 const handleMovie = () => {
     console.log("scdc");
-    let Movieame =document.getElementById("moname").value;
-    let MovieDiscription =document.getElementById("moviedis").value;
-    let MovieTime =document.getElementById("time").value;
-    let MovieFile =document.getElementById("Moviefile").value;
+    let Movieame = document.getElementById("moname").value;
+    let MovieDiscription = document.getElementById("moviedis").value;
+    let MovieFile = document.getElementById("Moviefile").value;
+    let MovieTime = document.getElementsByName("time");
+    
+    console.log(MovieTime);
+
+    for (let i=0; i<MovieTime.length; i++) {
+        arr.push(MovieTime[i].value)
+    }
+
+    console.log(arr);
+
 
     let randomMo = Math.floor(Math.random() * 1000);
 
@@ -171,18 +182,18 @@ const handleMovie = () => {
         localData.push({
             id: randomMo,
             name: Movieame,
-            desc:MovieDiscription,
-            time:[MovieTime],
-            poster:MovieFile
+            desc: MovieDiscription,
+            time: arr,
+            poster: MovieFile
         });
         localStorage.setItem("Movie", JSON.stringify(localData));
     } else {
         localStorage.setItem("Movie", JSON.stringify([{
             id: randomMo,
             name: Movieame,
-            desc:MovieDiscription,
-            time:[MovieTime],
-            poster:MovieFile
+            desc: MovieDiscription,
+            time: arr,
+            poster: MovieFile
         }]));
     };
     displayData(id, name, desc, time, poster);
