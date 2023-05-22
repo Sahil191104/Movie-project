@@ -60,6 +60,7 @@ const displayData = (cinemaname, cinemalocaton, cinemafacilites, cid) => {
 
     tableref.appendChild(tr);
 }
+
 const dataEdit = (cid) => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
     let upadatenew = localdata.filter((v, i) => v.id === cid);

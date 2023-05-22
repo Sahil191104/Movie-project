@@ -11,8 +11,8 @@ const Movie = () => {
 }
 let arr = [];
 
-// let update = false;
-// let id = null;
+let update = false;
+let id = null;
 
 let MovieformRef = document.getElementById("Movie_form");
 
@@ -115,9 +115,12 @@ const displayData = (randomMo, Movieame, MovieDiscription, time, MovieFile) => {
     // tr.appendChild(td4);
 
     let td5 = document.createElement("td");
+    let td5div = document.createElement("div");
+    td5div.setAttribute("id","divtd6");
     let img = document.createElement("img");
     img.setAttribute("src", MovieFile);
-    td5.appendChild(img);
+    td5div.appendChild(img);
+    td5.appendChild(td5div);
     tr.appendChild(td5);
 
     let td6 = document.createElement("td");
@@ -145,6 +148,27 @@ const displayData = (randomMo, Movieame, MovieDiscription, time, MovieFile) => {
     timeForm.appendChild(tr);
 }
 
+const dataEdit = (randomMo) => {
+    let localData = JSON.parse(localStorage.getItem("Movie"));
+    // let formtime = document.getElementById("time-table");
+
+    // while (formtime.firstChild) {
+    //     formtime.firstChild.remove();
+    // }
+
+    // for (let i=0; i<localData[index].length; i++) {
+    //     addbtn();
+    // }
+    let upadatenew = localData.filter((value, index) => value.id === randomMo);
+
+    document.getElementById("moname").value = upadatenew[0].name;
+    document.getElementById("moviedis").value = upadatenew[0].desc;
+    document.getElementById("Moviefile").value = upadatenew[0].poster;
+
+    update = true;
+    uid = randomMo;
+}
+
 const dataRemove = (randomMo) => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
     let tr = document.getElementById("row" + randomMo);
@@ -158,6 +182,51 @@ const dataRemove = (randomMo) => {
     });
 };
 
+const handleupdate = () => {
+    let localData = JSON.parse(localStorage.getItem("Movie"));
+    let newname = document.getElementById("moname").value;
+    let newdis = document.getElementById("moviedis").value;
+    let newfile = document.getElementById("Moviefile").value;
+
+    document.getElementById("moname").value = "";
+    document.getElementById("moviedis").value = "";
+    document.getElementById("Moviefile").value = "";
+
+    let updatevalue = localData.map((a) => {
+        console.log(a);
+        if (a.id === uid) {
+            return {
+                id: uid,
+                name: newname,
+                desc: newdis,
+                poster: newfile
+            };
+        } else {
+            return a;
+        };
+    });
+    localData[uid] = updatevalue;
+    localStorage.setItem("Movie", JSON.stringify(updatevalue));
+    console.log(updatevalue);
+
+    let tr = document.getElementById("row" + uid);
+
+    tr.children[0].innerHTML = newname;
+    tr.children[1].innerHTML = newdis;
+    tr.children[2].innerHTML = newfile;
+
+    event.preventDefault();
+}
+
+const handledeisplay = () => {
+    if (update) {
+        handleupdate();
+    } else {
+        handleMovie();
+    }
+    event.preventDefault();
+}
+
 const handleMovie = () => {
     console.log("scdc");
     let Movieame = document.getElementById("moname").value;
@@ -168,7 +237,7 @@ const handleMovie = () => {
     console.log(MovieTime);
 
     for (let i=0; i<MovieTime.length; i++) {
-        arr.push(MovieTime[i].value)
+        arr.push(MovieTime[i].value);
     }
 
     console.log(arr);
@@ -202,4 +271,4 @@ const handleMovie = () => {
 
 window.onload = Movieonload();
 window.onload = handleLoad();
-MovieformRef.addEventListener("submit", handleMovie);
+MovieformRef.addEventListener("submit", handledeisplay);
