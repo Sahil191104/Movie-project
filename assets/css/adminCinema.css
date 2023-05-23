@@ -7,7 +7,9 @@ body {
 	align-items: center;
 	/* min-height: 100vh; */
 	font-family: 'Jost', sans-serif;
-	background: #f6f5f7;
+	background: linear-gradient(-45deg, #23a6d5, #23d5ab, #bbc1bf, #57c6e1, #b49fda, #7ac5d8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 .main {
@@ -16,9 +18,9 @@ body {
 	overflow: hidden;
 	border-radius: 10px;
 	margin-left: 10%;
-	background: #FFFFFF;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
+	background: transparent;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10),
+		0 10px 10px rgba(0, 0, 0, 0.02);
 }
 
 label {
@@ -29,18 +31,23 @@ label {
 	cursor: pointer;
 	transition: .5s ease-in-out;
 	margin-top: 10%;
-	color: #000;
+	color: rgb(77, 77, 77);
+}
+
+input::placeholder {
+	color: #fff;
 }
 
 input {
 	width: 70%;
 	height: 40px;
-	background: #e0dede;
+	background: transparent;
 	justify-content: center;
 	display: flex;
+	border: 1px solid #fff;
+	color: #fff;
 	margin: 20px auto;
 	padding: 10px;
-	border: none;
 	outline: none;
 	border-radius: 5px;
 }
@@ -95,8 +102,8 @@ input {
 	height: 100vh;
 	width: 250px;
 	overflow: hidden;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10),
+		0 10px 10px rgba(0, 0, 0, 0.02);
 	background: linear-gradient(-45deg, #23a6d5, #23d5ab, #bbc1bf, #57c6e1, #b49fda, #7ac5d8, #ee7752, #e73c7e);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
@@ -123,9 +130,8 @@ input {
 }
 
 #cinematable {
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
-	background-color: #fff;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10),
+		0 10px 10px rgba(0, 0, 0, 0.02);
 	border-radius: 10px;
 }
 
@@ -150,6 +156,7 @@ button {
 
 #btnadmin,
 #btnadmin1 {
+	border: none;
 	width: 70px;
 	height: 40px;
 	margin: 10px auto;
@@ -180,13 +187,12 @@ button {
 	position: absolute;
 	top: 10%;
 	right: 233px;
-	color: #000;
-	background: #FFFFFF;
-
+	background-color: transparent;
 }
 
 #cinematable tr th {
 	padding: 20px;
+	color: rgb(77, 77, 77);
 	font-size: 18px;
 }
 
@@ -198,6 +204,7 @@ button {
 }
 
 #cinematable tr td {
+	color: rgb(77, 77, 77);
 	padding: 0 10px;
 }
 

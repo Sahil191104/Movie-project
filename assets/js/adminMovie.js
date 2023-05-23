@@ -9,10 +9,9 @@ const Movie = () => {
     window.location = "../admin/adminMovie.html"
     event.preventDefault();
 }
-let arr = [];
-
 let update = false;
 let id = null;
+let arr = [];
 
 let MovieformRef = document.getElementById("Movie_form");
 
@@ -54,7 +53,7 @@ const addbtn = () => {
     formdiv.setAttribute("id", "row" + randomMo);
 
     let btninput1 = document.createElement("input");
-    btninput1.setAttribute("id", "time");
+    btninput1.setAttribute("id", "inbtn");
     btninput1.setAttribute("name", "time");
     btninput1.setAttribute("type", "time");
     btninput1.setAttribute("placeholder", "Time");
@@ -62,8 +61,8 @@ const addbtn = () => {
 
     let btninput3 = document.createElement("button");
     btninput3.setAttribute("onclick", "addbtn()");
-    btninput3.setAttribute("id", "btn1");
     let btninput3Text = document.createTextNode("+");
+    btninput3.setAttribute("id", "btn1");
     btninput3.appendChild(btninput3Text);
     formdiv.appendChild(btninput3);
 
@@ -150,6 +149,9 @@ const displayData = (randomMo, Movieame, MovieDiscription, time, Path) => {
 const dataEdit = (randomMo) => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
+    update = true;
+    uid = randomMo;
+
     let upadatenew = localData.filter((value, i) => value.id === randomMo);
 
     let formtime = document.getElementById("time-form");
@@ -174,8 +176,7 @@ const dataEdit = (randomMo) => {
     document.getElementById("moviedis").value = upadatenew[0].desc;
     document.getElementById("Moviefile").value = upadatenew[0].poster;
 
-    update = true;
-    uid = randomMo;
+    console.log(poster);
 }
 
 const dataRemove = (randomMo) => {
@@ -192,23 +193,46 @@ const dataRemove = (randomMo) => {
 };
 
 const handleupdate = () => {
-    let localData = JSON.parse(localStorage.getItem("Movie"));
-    let newname = document.getElementById("moname").value;
-    let newdis = document.getElementById("moviedis").value;
-    let newfile = document.getElementById("Moviefile").value;
+    // console.log('handleupdate Call Method');
+    // let localData = JSON.parse(localStorage.getItem("Movie"));
+    // let newname = document.getElementById("moname").value;
+    // let newdis = document.getElementById("moviedis").value;
+    // let newfile = document.getElementById("Moviefile").value;
 
-    document.getElementById("moname").value = "";
-    document.getElementById("moviedis").value = "";
-    document.getElementById("Moviefile").value = "";
+    // document.getElementById("moname").value = "";
+    // document.getElementById("moviedis").value = "";
+    // document.getElementById("Moviefile").value = "";
+
+    console.log("scdc");
+    let Movieame = document.getElementById("moname").value;
+    let MovieDiscription = document.getElementById("moviedis").value;
+    let MovieFile = document.getElementById("Moviefile");
+    let MovieTime = document.getElementsByName("time");
+
+    console.log(MovieTime);
+
+    for (let i=0; i<MovieTime.length; i++) {
+        arr.push(MovieTime[i].value);
+    }
+
+    let filePath = MovieFile.files[0].name;
+    let Path = '../assets/image/' + filePath;
+
+    console.log(arr);
+
+    let randomMo = Math.floor(Math.random() * 1000);
+
+    let localData = JSON.parse(localStorage.getItem("Movie"));
 
     let updatevalue = localData.map((a) => {
         console.log(a);
         if (a.id === uid) {
             return {
-                id: uid,
-                name: newname,
-                desc: newdis,
-                poster: newfile
+                id: randomMo,
+                name: Movieame,
+                desc: MovieDiscription,
+                time: arr,
+                poster: Path
             };
         } else {
             return a;
@@ -243,14 +267,14 @@ const handleMovie = () => {
     let MovieFile = document.getElementById("Moviefile");
     let MovieTime = document.getElementsByName("time");
 
-    let filePath = MovieFile.files[0].name;
-    let Path = '../assets/image/' + filePath;
-
     console.log(MovieTime);
 
     for (let i=0; i<MovieTime.length; i++) {
         arr.push(MovieTime[i].value);
     }
+
+    let filePath = MovieFile.files[0].name;
+    let Path = '../assets/image/' + filePath;
 
     console.log(arr);
 

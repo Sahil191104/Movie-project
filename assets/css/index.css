@@ -8,7 +8,9 @@ body {
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background: #f6f5f7;
+	background: linear-gradient(-45deg, #23a6d5, #23d5ab, #bbc1bf, #57c6e1, #b49fda, #7ac5d8, #ee7752, #e73c7e);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 #chk {
@@ -22,7 +24,7 @@ body {
 } */
 form label {
 	font-size: 20px;
-	/* color: #fff; */
+	color: rgb(77, 77, 77);
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
@@ -32,15 +34,19 @@ form label {
 	transition: .5s ease-in-out;
 }
 
+input::placeholder {
+	color: #fff;
+}
+
 input {
+	border: 1px solid #eee;
 	width: 70%;
 	height: 20px;
-	background: #e0dede;
+	background: transparent;
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
 	padding: 10px;
-	border: none;
 	outline: none;
 	border-radius: 5px;
 }
@@ -52,8 +58,9 @@ input {
 	justify-content: center;
 	display: block;
 	color: #fff;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	background: linear-gradient(-45deg, #23a6d5, #23d5ab, #bbc1bf, #57c6e1, #b49fda, #7ac5d8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 	font-size: 1em;
 	font-weight: bold;
 	margin-top: 40px;
@@ -66,7 +73,7 @@ input {
 }
 
 .login a{
-	color: #FF4B2B;
+	color: #23a6d5;
 }
 
 #fontlable {
@@ -75,22 +82,37 @@ input {
 }
 
 span {
+	color: rgb(77, 77, 77);
 	margin: 4.5rem;
 }
 
 .login {
 	width: 350px;
 	height: 380px;
-	background: #FFFFFF;
+	background: transparent;
 	border-radius: 10px;
 	/* transform: translateY(-180px); */
 	transition: .8s ease-in-out;
-	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-		0 10px 10px rgba(0, 0, 0, 0.22);
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.10),
+		0 10px 10px rgba(0, 0, 0, 0.02);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .login label {
-	color: black;
+	color: rgb(77, 77, 77);
 	transform: scale(.6);
 }
 
