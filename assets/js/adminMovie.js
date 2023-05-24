@@ -17,7 +17,7 @@ const seat = () => {
 }
 
 let update = false;
-let id = null;
+let mid = null;
 let arr = [];
 
 let MovieformRef = document.getElementById("Movie_form");
@@ -43,7 +43,7 @@ const handleLoad = () => {
 
     if (localData) {
         localData.map((value) => {
-            displayData(value.id, value.name, value.desc, value.time, value.poster);
+            displayData(value.mid, value.name, value.desc, value.time, value.poster);
             document.getElementById("FormMovie1").style.display = "block";
         });
     };
@@ -157,7 +157,7 @@ const dataEdit = (randomMo) => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
     update = true;
-    uid = randomMo;
+    mid = randomMo;
 
     let upadatenew = localData.filter((value, i) => value.id === randomMo);
 
@@ -192,7 +192,7 @@ const dataRemove = (randomMo) => {
     tr.remove();
 
     localData.map((value, index) => {
-        if (value.id === randomMo) {
+        if (value.mid === randomMo) {
             localData.splice(index, 1);
             localStorage.setItem("Movie", JSON.stringify(localData));
         };
@@ -234,9 +234,9 @@ const handleupdate = () => {
 
     let updatevalue = localData.map((a) => {
         console.log(a);
-        if (a.id === uid) {
+        if (a.mid === mid) {
             return {
-                id: randomMo,
+                mid: randomMo,
                 cid:Mcid,
                 name: Movieame,
                 desc: MovieDiscription,
@@ -247,11 +247,11 @@ const handleupdate = () => {
             return a;
         };
     });
-    localData[uid] = updatevalue;
+    localData[mid] = updatevalue;
     localStorage.setItem("Movie", JSON.stringify(updatevalue));
     console.log(updatevalue);
 
-    let tr = document.getElementById("row" + uid);
+    let tr = document.getElementById("row" + mid);
 
     tr.children[0].innerHTML = newname;
     tr.children[1].innerHTML = newdis;
@@ -294,7 +294,7 @@ const handleMovie = () => {
 
     if (localData) {
         localData.push({
-            id: randomMo,
+            mid: randomMo,
             cid:Mcid,
             name: Movieame,
             desc: MovieDiscription,
@@ -304,7 +304,7 @@ const handleMovie = () => {
         localStorage.setItem("Movie", JSON.stringify(localData));
     } else {
         localStorage.setItem("Movie", JSON.stringify([{
-            id: randomMo,
+            mid: randomMo,
             cid:Mcid,
             name: Movieame,
             desc: MovieDiscription,
@@ -312,7 +312,7 @@ const handleMovie = () => {
             poster: Path
         }]));
     };
-    displayData(id, name, desc, time, poster);
+    displayData(mid, name, desc, time, poster);
     event.preventDefault();
 }
 

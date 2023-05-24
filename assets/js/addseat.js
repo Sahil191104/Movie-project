@@ -17,6 +17,7 @@ const seat = () => {
 }
 
 let cinemaName = document.getElementById("cinema-name");
+let timeName = document.getElementById("Movie-name");
 
 const Seatonload = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
@@ -39,15 +40,15 @@ const handlseat = () => {
 
     let FData = localData.filter((value, i) => value.cid === cinemaName.value);
 
-    localData.map((v) => {
+    FData.map((v) => {
         let optionref = document.getElementById("Movie-name");
 
         let optionEle = document.createElement("option");
+        optionEle.setAttribute("value", v.mid);
+
         let optiontex = document.createTextNode(v.name);
 
         optionEle.appendChild(optiontex);
-        optionEle.setAttribute("value", v.id);
-
         optionref.appendChild(optionEle);
     })
 }
@@ -55,18 +56,21 @@ const handlseat = () => {
 const handlMovie = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
-    let FData = localData.filter((value, i) => value.cid === cinemaName.value);
+    let FData = localData.filter((value, i) => value.mid === timeName.value);
+    console.log(timeName.value);
+    
+    FData.map((v) => {
+        for (i = 0; i < v.time.length; i++) {
+            let optionref = document.getElementById("Time-name");
 
-    localData.map((v) => {
-        let optionref = document.getElementById("Movie-name");
+            let optionEle = document.createElement("option");
+            optionEle.setAttribute("value", v.time[i]);
 
-        let optionEle = document.createElement("option");
-        let optiontex = document.createTextNode(v.name);
+            let optiontex = document.createTextNode(v.time[i]);
 
-        optionEle.appendChild(optiontex);
-        optionEle.setAttribute("value", v.id);
-
-        optionref.appendChild(optionEle);
+            optionEle.appendChild(optiontex);
+            optionref.appendChild(optionEle);
+        }
     });
 };
 

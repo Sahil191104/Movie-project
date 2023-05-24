@@ -27,18 +27,23 @@
     <div class="main" id="FormMovie">
         <div class="MovieFom">
             <h3>seat</h3>
-            <form id="Movie_form">
+            <form id="seat_form">
                 <select name="Cinema" id="cinema-name" onchange="handlseat()">
                     <option value="cinema">Cinema</option>
                 </select>
 
                 <select name="Movie" id="Movie-name" onchange="handlMovie()">
-                    <option value="cinema">Movie</option>
+                    <option value="Movie">Movie</option>
                 </select>
 
-                <select name="Time" id="Time-name" onchange="handlTime()">
-                    <option value="cinema">Time</option>
-                </select>
+                <div id="time-seat">
+                    <select name="Time" id="Time-name">
+                        <option value="time">Time</option>
+                    </select>
+
+                    <input type="number" id="moname" placeholder="Seat">
+                </div>
+                <input type="submit" id="btnseat">
             </form>
         </div>
     </div>
