@@ -16,6 +16,12 @@ const Movie = () => {
     event.preventDefault();
 }
 
+const seat = () => {
+    console.log("dfs");
+    window.location = "../admin/addseat.html"
+    event.preventDefault();
+}
+
 const displayData = (cinemaname, cinemalocaton, cinemafacilites, cid) => {
     let tr = document.createElement("tr");
     tr.setAttribute("id", "row" + cid);

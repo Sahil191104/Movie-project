@@ -11,7 +11,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/adminCinema.css">
+    <link rel="stylesheet" href="../assets/css/addseat.css">
 </head>
 
 <body>
@@ -23,35 +23,27 @@
         <button onclick="Movie()">Add Movie</button>
         <button onclick="seat()">Add Seat</button>
     </div>
-    
-    <div class="main" id="formcinema">
-        <div class="cinema">
-            <form id="cinema_form">
-                <label>Cinema</label>
-                <input type="text" name="name" placeholder="Name" required="" id="name">
-                <input type="text" name="locaton" placeholder="Locaton" required="" id="locaton">
-                <input type="text" name="facilites" placeholder="Facilites" required="" id="facilites">
-                <input type="submit" id="button">
+
+    <div class="main" id="FormMovie">
+        <div class="MovieFom">
+            <h3>seat</h3>
+            <form id="Movie_form">
+                <select name="Cinema" id="cinema-name" onchange="handlseat()">
+                    <option value="cinema">Cinema</option>
+                </select>
+
+                <select name="Movie" id="Movie-name" onchange="handlMovie()">
+                    <option value="cinema">Movie</option>
+                </select>
+
+                <select name="Time" id="Time-name" onchange="handlTime()">
+                    <option value="cinema">Time</option>
+                </select>
             </form>
         </div>
     </div>
 
-    <div id="cinematable">
-        <table id="table1">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Locaton</th>
-                    <th scope="col">Facilites</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody">
-            </tbody>
-        </table>
-    </div>
-
-    <script src="../assets/js/adminCinema.js"></script>
+    <script src="../assets/js/addseat.js"></script>
 
 </body>
 

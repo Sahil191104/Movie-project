@@ -9,6 +9,13 @@ const Movie = () => {
     window.location = "../admin/adminMovie.html"
     event.preventDefault();
 }
+
+const seat = () => {
+    console.log("dfs");
+    window.location = "../admin/addseat.html"
+    event.preventDefault();
+}
+
 let update = false;
 let id = null;
 let arr = [];
@@ -208,6 +215,7 @@ const handleupdate = () => {
     let MovieDiscription = document.getElementById("moviedis").value;
     let MovieFile = document.getElementById("Moviefile");
     let MovieTime = document.getElementsByName("time");
+    let Mcid = document.getElementById("cinema-name").value;
 
     console.log(MovieTime);
 
@@ -229,6 +237,7 @@ const handleupdate = () => {
         if (a.id === uid) {
             return {
                 id: randomMo,
+                cid:Mcid,
                 name: Movieame,
                 desc: MovieDiscription,
                 time: arr,
@@ -266,8 +275,9 @@ const handleMovie = () => {
     let MovieDiscription = document.getElementById("moviedis").value;
     let MovieFile = document.getElementById("Moviefile");
     let MovieTime = document.getElementsByName("time");
+    let Mcid = document.getElementById("cinema-name").value;
 
-    console.log(MovieTime);
+    console.log(Mcid);
 
     for (let i=0; i<MovieTime.length; i++) {
         arr.push(MovieTime[i].value);
@@ -285,6 +295,7 @@ const handleMovie = () => {
     if (localData) {
         localData.push({
             id: randomMo,
+            cid:Mcid,
             name: Movieame,
             desc: MovieDiscription,
             time: arr,
@@ -294,6 +305,7 @@ const handleMovie = () => {
     } else {
         localStorage.setItem("Movie", JSON.stringify([{
             id: randomMo,
+            cid:Mcid,
             name: Movieame,
             desc: MovieDiscription,
             time: arr,
