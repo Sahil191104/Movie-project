@@ -159,7 +159,7 @@ const dataEdit = (randomMo) => {
     update = true;
     mid = randomMo;
 
-    let upadatenew = localData.filter((value, i) => value.id === randomMo);
+    let upadatenew = localData.filter((value, i) => value.mid === randomMo);
 
     let formtime = document.getElementById("time-form");
 

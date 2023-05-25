@@ -25,7 +25,7 @@ body {
 }
 
 .main1 {
-	display: none;
+	/* display: none; */
 	/* padding: 10px; */
 	width: auto;
 	height: auto;
@@ -360,6 +360,10 @@ button,
 #FormMovie1 tr td {
 	color: rgb(77, 77, 77);
 	padding: 0 20px;
+}
+
+#FormMovie1 tr td:nth-child(4){
+	padding-top: 17px;
 }
 
 #FormMovie1 tr td:nth-child(4) {
