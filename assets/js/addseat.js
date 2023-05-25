@@ -16,6 +16,9 @@ const seat = () => {
     event.preventDefault();
 }
 
+let update = false;
+let sid = null;
+
 let cinemaName = document.getElementById("cinema-name");
 let SeatForm = document.getElementById("seat_form");
 
@@ -125,6 +128,22 @@ const displayData = (randomset, cinemaName, MovieName, timeame, seat) => {
     timeForm.appendChild(tr);
 }
 
+const dataEdit = (randomset) => {
+    let localData = JSON.parse(localStorage.getItem("seat"));
+
+    let upadatenew = localData.filter((value, i) => value.sid === randomset);
+
+    document.getElementById("cinema-name").value = upadatenew[0].cinema;
+    document.getElementById("Movie-name").value = upadatenew[0].movie;
+    document.getElementById("Time-name").value = upadatenew[0].time;
+    document.getElementById("moname").value = upadatenew[0].seat.length;
+
+    update = true;
+    sid = randomset;
+    
+    console.log(poster);
+}
+
 const dataRemove = (randomset) => {
     let localData = JSON.parse(localStorage.getItem("seat"));
     let tr = document.getElementById("row" + randomset);
@@ -138,12 +157,89 @@ const dataRemove = (randomset) => {
     });
 };
 
+const handleupdate = () => {
+    let cinema = parseInt(document.getElementById('cinema-name').value);
+    let movie = parseInt(document.getElementById('Movie-name').value);
+    let time = document.getElementById('Time-name').value;
+    let seat = parseInt(document.getElementById('moname').value);
+    let timeame = document.getElementById("Time-name").value;
+
+    let cinemaData = JSON.parse(localStorage.getItem("cinema"));
+    let movieData = JSON.parse(localStorage.getItem("Movie"));
+
+    let cinemaName;
+    let MovieName;
+
+    cinemaData.map((value) => {
+        if (value.id === cinema) {
+            cinemaName = value.name;
+        };
+    });
+    console.log(cinemaName);
+
+    movieData.map((value) => {
+        if (value.mid === movie) {
+            MovieName = value.name;
+        };
+    });
+
+    let randomset = Math.floor(Math.random() * 1000);
+
+    let localData = JSON.parse(localStorage.getItem("seat"));
+
+    let seatarray = [];
+
+    for (let i = 0; i < seat; i++) {
+        seatarray.push(0);
+    };
+
+    let updatevalue = localData.map((a) => {
+        if (a.sid === sid) {
+            return {
+                cinema: cinema,
+                movie: movie,
+                time: time,
+                sid:randomset,
+                seat: seatarray
+            };
+        } else {
+            return a;
+        };
+    });
+    localData[sid] = updatevalue;
+    localStorage.setItem("seat", JSON.stringify(updatevalue));
+
+    let tr = document.getElementById("row" + sid);
+
+    tr.children[0].innerHTML = cinemaName;
+    console.log(tr.children[0].innerHTML);
+    tr.children[1].innerHTML = MovieName;
+    tr.children[2].innerHTML = timeame;
+    tr.children[3].innerHTML = seat;
+
+    event.preventDefault();
+}
+
+const handledeisplay = () => {
+    if (update) {
+        handleupdate();
+    } else {
+        handleSubmit();
+    }
+    event.preventDefault();
+}
+
 let handleSubmit = () => {
     let cinema = parseInt(document.getElementById('cinema-name').value);
     let movie = parseInt(document.getElementById('Movie-name').value);
     let time = document.getElementById('Time-name').value;
     let seat = parseInt(document.getElementById('moname').value);
     let timeame = document.getElementById("Time-name").value;
+
+    document.getElementById('cinema-name').value = "";
+    document.getElementById('Movie-name').value = "";
+    document.getElementById('Time-name').value = "";
+    document.getElementById('moname').value = "";
 
     let randomset = Math.floor(Math.random() * 1000);
 
@@ -160,7 +256,6 @@ let handleSubmit = () => {
         };
     });
     console.log(cinemaName);
-
 
     movieData.map((value) => {
         if (value.mid === movie) {
@@ -194,21 +289,21 @@ let handleSubmit = () => {
     }
 
     displayData(randomset, cinemaName, MovieName, timeame, seat);
-    
+
     event.preventDefault();
 }
 
 // const handleLoad = () => {
-//     let localData = JSON.parse(localStorage.getItem("seat"));
+//     let localData = JSON.parse(localStorage.getItem('seat'));
 
 //     if (localData) {
 //         localData.map((value) => {
 //             displayData(value.cinema, value.movie, value.time, value.seat.length);
-//             document.getElementById("FormMovie1").style.display = "block";
 //         });
 //     };
 // };
 
 window.onload = Seatonload;
-// window.onload = handleLoad;
-SeatForm.addEventListener('submit', handleSubmit)
+// window.onload = handleLoad();
+// console.log(handleLoad());
+SeatForm.addEventListener('submit', handledeisplay);
