@@ -1,17 +1,14 @@
 const cinema = () => {
-    console.log("dfs");
     window.location = "../admin/adminCinema.html"
     event.preventDefault();
 }
 
 const Movie = () => {
-    console.log("dfs");
     window.location = "../admin/adminMovie.html"
     event.preventDefault();
 }
 
 const seat = () => {
-    console.log("dfs");
     window.location = "../admin/addseat.html"
     event.preventDefault();
 }
@@ -24,32 +21,26 @@ let SeatForm = document.getElementById("seat_form");
 
 const Seatonload = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-
     let optionref = document.getElementById("cinema-name");
+
     localdata.map((v) => {
         let optionEle = document.createElement("option");
-        let optiontex = document.createTextNode(v.name);
-
-        optionEle.appendChild(optiontex);
         optionEle.setAttribute("value", v.id);
-
+        let optiontex = document.createTextNode(v.name);
+        optionEle.appendChild(optiontex);
         optionref.appendChild(optionEle);
     });
 };
 
 const handlseat = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
-
     let FData = localData.filter((value) => value.cid === cinemaName.value);
 
     let optionref = document.getElementById("Movie-name");
     FData.map((v) => {
-
         let optionEle = document.createElement("option");
         optionEle.setAttribute("value", v.mid);
-
         let optiontex = document.createTextNode(v.name);
-
         optionEle.appendChild(optiontex);
         optionref.appendChild(optionEle);
     })
@@ -58,19 +49,14 @@ const handlseat = () => {
 const handlMovie = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
     let timeName = document.getElementById("Movie-name");
-
     let FData = localData.filter((value) => value.mid === parseInt(timeName.value));
-    console.log(timeName.value);
+    let optionref = document.getElementById("Time-name");
 
     FData.map((v) => {
         for (i = 0; i < v.time.length; i++) {
-            let optionref = document.getElementById("Time-name");
-
             let optionEle = document.createElement("option");
             optionEle.setAttribute("value", v.time[i]);
-
             let optiontex = document.createTextNode(v.time[i]);
-
             optionEle.appendChild(optiontex);
             optionref.appendChild(optionEle);
         }
@@ -78,9 +64,6 @@ const handlMovie = () => {
 };
 
 const displayData = (cinemaName, MovieName, time, seat, randomset) => {
-
-    console.log(cinemaName, MovieName, time, seat, randomset);
-
     let timeForm = document.getElementById("tablebody");
 
     let tr = document.createElement("tr");
@@ -132,20 +115,15 @@ const displayData = (cinemaName, MovieName, time, seat, randomset) => {
 const dataEdit = (randomset) => {
     let localData = JSON.parse(localStorage.getItem("seat"));
 
-    if (update) {
-        handlseat();
-        handlMovie();
-    }
-
     update = true;
     sid = randomset;
 
     let upadatenew = localData.filter((value, i) => value.sid === randomset);
 
-
-
     document.getElementById("cinema-name").value = upadatenew[0].cid;
+    handlseat();
     document.getElementById("Movie-name").value = upadatenew[0].mid;
+    handlMovie();
     document.getElementById("Time-name").value = upadatenew[0].time;
     document.getElementById("moname").value = upadatenew[0].seat.length;
 }
@@ -181,7 +159,6 @@ const handleupdate = () => {
             cinemaName = value.name;
         };
     });
-    console.log(cinemaName);
 
     movieData.map((value) => {
         if (value.mid === movie) {
@@ -237,7 +214,6 @@ let handleSubmit = () => {
     let movie = parseInt(document.getElementById('Movie-name').value);
     let time = document.getElementById('Time-name').value;
     let seat = parseInt(document.getElementById('moname').value);
-    // let timeame = document.getElementById("Time-name").value;
 
     document.getElementById('cinema-name').value = "";
     document.getElementById('Movie-name').value = "";
@@ -258,7 +234,6 @@ let handleSubmit = () => {
             cinemaName = value.name;
         };
     });
-    console.log(cinemaName);
 
     movieData.map((value) => {
         if (value.mid === movie) {
@@ -303,10 +278,8 @@ const handleLoad = () => {
         localData.map((value) => {
             let cinemaData = JSON.parse(localStorage.getItem("cinema"));
             let movieData = JSON.parse(localStorage.getItem("Movie"));
-
             let cinemaName = cinemaData.filter((k) => k.id === value.cid)[0].name;
             let MovieName = movieData.filter((k) => k.mid === value.mid)[0].name;
-
             displayData(cinemaName, MovieName, value.time, value.seat.length, value.sid);
         });
     };
@@ -314,5 +287,4 @@ const handleLoad = () => {
 
 window.onload = Seatonload();
 window.onload = handleLoad();
-// console.log(handleLoad());
 SeatForm.addEventListener('submit', handledeisplay);
