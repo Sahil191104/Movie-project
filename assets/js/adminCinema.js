@@ -148,7 +148,7 @@ const cinemaFormUser = () => {
 
     // console.log(cinemaname,cinemalocaton,cinemafacilites);
     let localdata = JSON.parse(localStorage.getItem("cinema"));
-    let cid = Math.floor(Math.random() * 10);
+    let cid = Math.floor(Math.random() * 10000);
 
     if (localdata) {
         localdata.push({

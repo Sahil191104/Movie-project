@@ -16,7 +16,7 @@ const seat = () => {
 let update = false;
 let sid = null;
 
-let cinemaName = document.getElementById("cinema-name");
+
 let SeatForm = document.getElementById("seat_form");
 
 const Seatonload = () => {
@@ -32,25 +32,44 @@ const Seatonload = () => {
     });
 };
 
+//cinema
 const handlseat = () => {
+    let cinemaName = document.getElementById("cinema-name");
     let localData = JSON.parse(localStorage.getItem("Movie"));
-    let FData = localData.filter((value) => value.cid === cinemaName.value);
 
     let optionref = document.getElementById("Movie-name");
+    document.getElementById("Movie-name").innerHTML = "";
+
+    let FData = localData.filter((value) => value.cid === cinemaName.value);
+    let optionEle = document.createElement("option");
+    optionEle.setAttribute("value", "Select Movie");
+    let optiontex = document.createTextNode("Select Movie");
+    optionEle.appendChild(optiontex);
+    optionref.appendChild(optionEle);
+
     FData.map((v) => {
         let optionEle = document.createElement("option");
         optionEle.setAttribute("value", v.mid);
         let optiontex = document.createTextNode(v.name);
         optionEle.appendChild(optiontex);
         optionref.appendChild(optionEle);
-    })
-}
+    });
+};
 
+//movie
 const handlMovie = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
     let timeName = document.getElementById("Movie-name");
-    let FData = localData.filter((value) => value.mid === parseInt(timeName.value));
+
     let optionref = document.getElementById("Time-name");
+    document.getElementById("Time-name").innerHTML = "";
+
+    let FData = localData.filter((value) => value.mid === parseInt(timeName.value));
+    let optionEle = document.createElement("option");
+    optionEle.setAttribute("value", "Select Time");
+    let optiontex = document.createTextNode("Select Time");
+    optionEle.appendChild(optiontex);
+    optionref.appendChild(optionEle);
 
     FData.map((v) => {
         for (i = 0; i < v.time.length; i++) {
@@ -59,7 +78,7 @@ const handlMovie = () => {
             let optiontex = document.createTextNode(v.time[i]);
             optionEle.appendChild(optiontex);
             optionref.appendChild(optionEle);
-        }
+        };
     });
 };
 
@@ -113,11 +132,10 @@ const displayData = (cinemaName, MovieName, time, seat, randomset) => {
 }
 
 const dataEdit = (randomset) => {
-    let localData = JSON.parse(localStorage.getItem("seat"));
-
     update = true;
     sid = randomset;
 
+    let localData = JSON.parse(localStorage.getItem("seat"));
     let upadatenew = localData.filter((value, i) => value.sid === randomset);
 
     document.getElementById("cinema-name").value = upadatenew[0].cid;
@@ -147,6 +165,11 @@ const handleupdate = () => {
     let time = document.getElementById('Time-name').value;
     let seat = parseInt(document.getElementById('moname').value);
     let timeame = document.getElementById("Time-name").value;
+
+    document.getElementById('cinema-name').value = "";
+    document.getElementById('Movie-name').value = "";
+    document.getElementById('Time-name').value = "";
+    document.getElementById('moname').value = "";
 
     let cinemaData = JSON.parse(localStorage.getItem("cinema"));
     let movieData = JSON.parse(localStorage.getItem("Movie"));
@@ -220,7 +243,7 @@ let handleSubmit = () => {
     document.getElementById('Time-name').value = "";
     document.getElementById('moname').value = "";
 
-    let randomset = Math.floor(Math.random() * 1000);
+    let randomset = Math.floor(Math.random() * 10000);
 
     let cinemaData = JSON.parse(localStorage.getItem("cinema"));
     let movieData = JSON.parse(localStorage.getItem("Movie"));

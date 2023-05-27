@@ -27,13 +27,10 @@ const Movieonload = () => {
 
     localdata.map((v) => {
         let optionref = document.getElementById("cinema-name");
-
         let optionEle = document.createElement("option");
-        let optiontex = document.createTextNode(v.name);
-
-        optionEle.appendChild(optiontex);
         optionEle.setAttribute("value", v.id);
-
+        let optiontex = document.createTextNode(v.name);
+        optionEle.appendChild(optiontex);
         optionref.appendChild(optionEle);
     });
 };
@@ -122,7 +119,7 @@ const displayData = (randomMo, Movieame, MovieDiscription, time, Path) => {
 
     let td5 = document.createElement("td");
     let td5div = document.createElement("div");
-    td5div.setAttribute("id","divtd6");
+    td5div.setAttribute("id", "divtd6");
     let img = document.createElement("img");
     img.setAttribute("src", Path);
     td5div.appendChild(img);
@@ -167,14 +164,14 @@ const dataEdit = (randomMo) => {
         formtime.firstChild.remove();
     }
 
-    for (let i=0; i<upadatenew[0].time.length; i++) {
+    for (let i = 0; i < upadatenew[0].time.length; i++) {
         addbtn();
         console.log("ascdsv");
     }
 
     let MovieTime = document.getElementsByName("time");
 
-    for (let i=0; i<upadatenew[0].time.length; i++) {
+    for (let i = 0; i < upadatenew[0].time.length; i++) {
         console.log(upadatenew[0][i]);
         MovieTime[i].value = upadatenew[0].time[i];
     }
@@ -200,17 +197,6 @@ const dataRemove = (randomMo) => {
 };
 
 const handleupdate = () => {
-    // console.log('handleupdate Call Method');
-    // let localData = JSON.parse(localStorage.getItem("Movie"));
-    // let newname = document.getElementById("moname").value;
-    // let newdis = document.getElementById("moviedis").value;
-    // let newfile = document.getElementById("Moviefile").value;
-
-    // document.getElementById("moname").value = "";
-    // document.getElementById("moviedis").value = "";
-    // document.getElementById("Moviefile").value = "";
-
-    console.log("scdc");
     let Movieame = document.getElementById("moname").value;
     let MovieDiscription = document.getElementById("moviedis").value;
     let MovieFile = document.getElementById("Moviefile");
@@ -219,16 +205,14 @@ const handleupdate = () => {
 
     console.log(MovieTime);
 
-    for (let i=0; i<MovieTime.length; i++) {
+    for (let i = 0; i < MovieTime.length; i++) {
         arr.push(MovieTime[i].value);
     }
 
     let filePath = MovieFile.files[0].name;
     let Path = '../assets/image/' + filePath;
 
-    console.log(arr);
-
-    let randomMo = Math.floor(Math.random() * 1000);
+    let randomMo = Math.floor(Math.random() * 10000);
 
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
@@ -237,7 +221,7 @@ const handleupdate = () => {
         if (a.mid === mid) {
             return {
                 mid: randomMo,
-                cid:Mcid,
+                cid: Mcid,
                 name: Movieame,
                 desc: MovieDiscription,
                 time: arr,
@@ -279,7 +263,7 @@ const handleMovie = () => {
 
     console.log(Mcid);
 
-    for (let i=0; i<MovieTime.length; i++) {
+    for (let i = 0; i < MovieTime.length; i++) {
         arr.push(MovieTime[i].value);
     }
 
@@ -295,7 +279,7 @@ const handleMovie = () => {
     if (localData) {
         localData.push({
             mid: randomMo,
-            cid:Mcid,
+            cid: Mcid,
             name: Movieame,
             desc: MovieDiscription,
             time: arr,
@@ -305,7 +289,7 @@ const handleMovie = () => {
     } else {
         localStorage.setItem("Movie", JSON.stringify([{
             mid: randomMo,
-            cid:Mcid,
+            cid: Mcid,
             name: Movieame,
             desc: MovieDiscription,
             time: arr,
