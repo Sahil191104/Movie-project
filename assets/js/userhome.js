@@ -1,30 +1,24 @@
-const useronload = () => {
+let search = document.getElementById("search");
+
+const search_CLUE = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    if (localdata) {
+    print = '<div class="row">';
         localdata.map((value) => {
-            print += '<h5>' + "Cinema Name:-" + '</h5>' + '<p>' + value.name + '</p>';
-            print += '<h5>' + "Cinema Locaton:-" + '</h5>' + '<p>' + value.locaton + '</p>';
-            print += '<h5>' + "Cinema Facilites:-" + '</h5>' + '<p>' + value.facilites + '</p>';
+            if (value.name.includes(search.value) || value.locaton.includes(search.value) || value.facilites.includes(search.value)) {
+                print += '<div class="col-lg-3 col-2" id="col' + value.id + ' ">';
+                print += '<div class="card bg-body-tertiary">';
+                print += '<div class="card-body">';
+                print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Name: </h6>' + '<span>' + value.name + '</span>' + '</div>';
+                print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Location: </h6>' + '<span>' + value.locaton + '</span>' + '</div>';
+                print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Facility: </h6>' + '<span>' + value.facilites + '</span>' + '</div>';
+                print += '</div></div></div>';
+            };
         });
-    };
+    print += '</div>';
 
     document.querySelector(".login").innerHTML = print;
 }
 
-function search_CLUE() {
-    let input = document.getElementById('myInput').value;
-    input=input.toLowerCase();
-    let x = document.getElementsByClassName('name');
-    
-    for (i = 0; i < x.length; i++) { 
-        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-            x[i].style.display="none";
-        }
-        else {
-            x[i].style.display="list-item";
-        };
-    };
-};
-
-window.onload = useronload();
+search.addEventListener("keyup", search_CLUE);
+window.onload = search_CLUE();
