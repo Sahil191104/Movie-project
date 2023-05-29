@@ -25,17 +25,19 @@ const search_CLUE = () => {
 const search_Movie = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
-    print = '<div class="row">';
+    print = '<div class="row1">';
     localData.map((value) => {
         if (value.name.includes(searchMovie.value) || value.desc.includes(searchMovie.value) || value.name.toLowerCase().includes(searchMovie.value) || value.desc.toLowerCase().includes(searchMovie.value)) {
             print += '<div class="col-lg-3 col-2" id="col' + value.id + ' ">';
             print += '<div class="card">';
-            print += '<div class="Movieimage">';
-            print += '<img class="img-fluid" src="' + value.poster + '" style="width: 100%; object-fit: cover; object-position: top; height: 350px;  aspect-ratio"; border-radius: 10px;">';
+            print += '<div class="container">';
+            print += '<div class="child">';
+            print += '<img class="img-fluid" src="' + value.poster + '" style="width: 100%; object-fit: cover; object-position: top; height: 450px;  aspect-ratio";">';
+            print += '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')" class="btn btn-primary">'+ '<span>' + value.name + '</span>' +'</a>';
             print += '</div>';
-            print += '<div class="card-body">';
-            print += '<div class="flexdiv">' + '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')" class="btn btn-primary">Movie Details</a>' + '</div>';
-            print += '</div></div></div>';
+            print += '</div>';
+            // print += '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')" class="btn btn-primary">Movie Details</a>';
+            print += '</div></div>';
         };
     });
     print += '</div>';
