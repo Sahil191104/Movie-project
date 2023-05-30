@@ -75,6 +75,7 @@ body {
     margin-left: calc(var(--bs-gutter-x) * -.5);
 }
 
+
 .child .btn {
 	cursor: pointer;
 }
