@@ -14,7 +14,6 @@ const handleOnload = () => {
         temp.map((value) => {
             temp1.push(temp);
             console.log(temp1);
-            let localdata = JSON.parse(localStorage.getItem("cinema"));
             print = '<div class="row">';
             temp1.map((value) => {
                 print += '<div class="col-lg-3 col-2" id="col' + value.id + ' ">';
