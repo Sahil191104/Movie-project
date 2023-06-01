@@ -27,6 +27,10 @@ body {
 	/* height: 100vh; */
 }
 
+.row {
+	margin: 30px;
+}
+
 #displaydata {
 	margin-top: 20px;
 }
