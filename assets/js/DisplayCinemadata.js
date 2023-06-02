@@ -24,7 +24,9 @@ const handleOnload = () => {
                     print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Name: </h6>' + '<span>' + value.name + '</span>' + '</div>';
                     print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Location: </h6>' + '<span>' + value.locaton + '</span>' + '</div>';
                     print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Facility: </h6>' + '<span>' + value.facilites + '</span>' + '</div>';
+                    print += '<div class="flexdiv">' + '<a href="Time.html" onclick="NewDataTime('+ value.id +')" class="btn btn-primary">Time List</a>' + '</div>';
                     print += '</div></div></div>';
+                    console.log(value.id);
                 };
             };
         });
@@ -33,5 +35,10 @@ const handleOnload = () => {
         document.getElementById("displaydatacinama").innerHTML = print;
     });
 };
+
+const NewDataTime = (cuid) => {
+    sessionStorage.setItem("cuid", JSON.stringify(cuid));
+    console.log(cuid);
+}
 
 window.onload = handleOnload();
