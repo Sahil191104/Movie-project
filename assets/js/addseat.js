@@ -82,7 +82,7 @@ const handlMovie = () => {
     });
 };
 
-const displayData = (cinemaName, MovieName, time, seat, randomset) => {
+const displayData = (cinemaName, MovieName, time, seat, price, randomset) => {
     let timeForm = document.getElementById("tablebody");
 
     let tr = document.createElement("tr");
@@ -107,6 +107,11 @@ const displayData = (cinemaName, MovieName, time, seat, randomset) => {
     let td4Text = document.createTextNode(seat);
     td4.appendChild(td4Text);
     tr.appendChild(td4);
+
+    let td5 = document.createElement("td");
+    let td5Text = document.createTextNode(price);
+    td5.appendChild(td5Text);
+    tr.appendChild(td5);
 
     let td6 = document.createElement("td");
     let td6div = document.createElement("div");
@@ -144,6 +149,7 @@ const dataEdit = (randomset) => {
     handlMovie();
     document.getElementById("Time-name").value = upadatenew[0].time;
     document.getElementById("moname").value = upadatenew[0].seat.length;
+    document.getElementById("price").value = upadatenew[0].Price;
 }
 
 const dataRemove = (randomset) => {
@@ -165,11 +171,13 @@ const handleupdate = () => {
     let time = document.getElementById('Time-name').value;
     let seat = parseInt(document.getElementById('moname').value);
     let timeame = document.getElementById("Time-name").value;
+    let price = document.getElementById("price").value;
 
     document.getElementById('cinema-name').value = "";
     document.getElementById('Movie-name').value = "";
     document.getElementById('Time-name').value = "";
     document.getElementById('moname').value = "";
+    document.getElementById('price').value = "";
 
     let cinemaData = JSON.parse(localStorage.getItem("cinema"));
     let movieData = JSON.parse(localStorage.getItem("Movie"));
@@ -204,7 +212,8 @@ const handleupdate = () => {
                 cid: cinema,
                 mid: movie,
                 time: time,
-                seat: seatarray
+                seat: seatarray,
+                Price: price
             };
         } else {
             return a;
@@ -219,6 +228,7 @@ const handleupdate = () => {
     tr.children[1].innerHTML = MovieName;
     tr.children[2].innerHTML = timeame;
     tr.children[3].innerHTML = seat;
+    tr.children[4].innerHTML = price;
 
     event.preventDefault();
 }
@@ -237,11 +247,13 @@ let handleSubmit = () => {
     let movie = parseInt(document.getElementById('Movie-name').value);
     let time = document.getElementById('Time-name').value;
     let seat = parseInt(document.getElementById('moname').value);
+    let price = document.getElementById("price").value;
 
     document.getElementById('cinema-name').value = "";
     document.getElementById('Movie-name').value = "";
     document.getElementById('Time-name').value = "";
     document.getElementById('moname').value = "";
+    document.getElementById('price').value = "";
 
     let randomset = Math.floor(Math.random() * 10000);
 
@@ -276,7 +288,8 @@ let handleSubmit = () => {
             cid: cinema,
             mid: movie,
             time: time,
-            seat: seatarray
+            seat: seatarray,
+            Price:price
         });
         localStorage.setItem("seat", JSON.stringify(localData));
     } else {
@@ -285,11 +298,12 @@ let handleSubmit = () => {
             cid: cinema,
             mid: movie,
             time: time,
-            seat: seatarray
+            seat: seatarray,
+            Price:price
         }]));
     }
 
-    displayData(cinemaName, MovieName, time, seat, randomset);
+    displayData(cinemaName, MovieName, time, seat, price, randomset);
 
     event.preventDefault();
 }
@@ -303,7 +317,7 @@ const handleLoad = () => {
             let movieData = JSON.parse(localStorage.getItem("Movie"));
             let cinemaName = cinemaData.filter((k) => k.id === value.cid)[0].name;
             let MovieName = movieData.filter((k) => k.mid === value.mid)[0].name;
-            displayData(cinemaName, MovieName, value.time, value.seat.length, value.sid);
+            displayData(cinemaName, MovieName, value.time, value.seat.length, value.Price,value.sid);
         });
     };
 };

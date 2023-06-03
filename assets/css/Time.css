@@ -23,16 +23,30 @@ input {
 body {
 	padding: 30px;
 	background: var(--bg);
-	/* display: flex; */
-	/* height: 100vh; */
 }
 
 .row {
-	margin: 30px;
+	margin: 0 auto;
+    width: 48%;
+    justify-content: center;
+}
+
+.col-lg-3 {
+	flex: 0 0 auto;
+	width: auto;
 }
 
 #displaydataTime {
-	margin-top: 20px;
+	margin-top: 40px;
+} 
+
+#blockid {
+	/* display: none; */
+}
+
+#displaydataSeat {
+	display: none;
+	margin-top: 70px;
 }
 
 .Movie-data {

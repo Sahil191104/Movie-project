@@ -81,7 +81,8 @@ input::placeholder {
 	color: #fff;
 }
 
-#moname {
+#moname,
+#price {
 	margin: 14px 20px;
 	color: #fff;
 	width: 18%;
@@ -91,6 +92,11 @@ input::placeholder {
 	border: 1px solid #fff;
 	outline: none;
 	border-radius: 5px;
+}
+
+#price {
+	margin: 14px 50px;
+	width: 30%;
 }
 
 #time-seat {
