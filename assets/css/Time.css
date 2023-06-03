@@ -38,10 +38,13 @@ body {
 
 #displaydataTime {
 	margin-top: 40px;
-} 
+	justify-content: start;
+}
 
-#blockid {
-	/* display: none; */
+.btncss,
+.btncss:hover {
+	background: #fff !important;
+	color: #010101;
 }
 
 #displaydataSeat {
@@ -79,59 +82,17 @@ form {
 	max-width: 17em;
 }
 
-input,
-.caret {
-	display: block;
-	transition: all calc(var(--dur) * 0.5) linear;
-	-webkit-transition: all calc(var(--dur) * 0.5) linear;
-	-moz-transition: all calc(var(--dur) * 0.5) linear;
-	-ms-transition: all calc(var(--dur) * 0.5) linear;
-	-o-transition: all calc(var(--dur) * 0.5) linear;
-}
-
-input {
-	cursor: pointer;
-	background: transparent;
-	border-radius: 50%;
-	box-shadow: 0 0 0 0.25em inset;
-	caret-color: var(--primary);
-	width: 2em;
-	height: 2em;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-input:focus,
-input:valid {
-	cursor: text;
-	background: var(--input);
-	border-radius: 0.25em;
-	box-shadow: none;
-	padding: 0.75em 1em;
-	transition-duration: calc(var(--dur) * 0.25);
-	transition-delay: calc(var(--dur) * 0.25);
-	width: 100%;
-	height: 3em;
-}
-
-input:focus {
-	animation: showCaret var(--dur) steps(1);
-	outline: transparent;
-}
-
-input:focus+.caret,
-input:valid+.caret {
-	cursor: pointer;
-	animation: handleToCaret var(--dur) linear;
-	background: transparent;
-	width: 1px;
-	height: 1.5em;
-	transform: translate(0, -1em) rotate(-180deg) translate(7.5em, -0.25em);
-}
-
-input::-webkit-search-decoration {
-	-webkit-appearance: none;
+#PriceBtn {
+	margin-top: 20px;
+	height: 37px;
+	text-align: center;
+	width: 80px;
+	border-radius: 5px;
+	border: 2px solid #b49fda;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
 }
 
 #h1 h1 {
@@ -145,17 +106,6 @@ label {
 	position: absolute;
 	width: 0;
 	height: 0;
-}
-
-.caret {
-	cursor: pointer;
-	background: currentColor;
-	border-radius: 0 0 0.125em 0.125em;
-	margin-bottom: -0.6em;
-	width: 0.25em;
-	height: 1em;
-	transform: translate(0, -1em) rotate(-45deg) translate(0, 0.875em);
-	transform-origin: 50% 0;
 }
 
 /* Dark mode */
