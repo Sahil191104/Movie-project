@@ -5,48 +5,363 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Filmlane - Best movie collections</title>
+
+    <!-- 
+        - favicon
+        -->
+    <link rel="shortcut icon" href="../favicon.svg" type="/image/svg+xml">
+
+    <!-- 
+        - custom css link
+        -->
     <link rel="stylesheet" href="../assets/css/userhome.css">
 
-<body>
-    <!-- Cinema Data -->
+    <!-- 
+        - google font link
+        -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <div id="h1">
-        <h1>Cinema</h1>
-    </div>
-    <form>
-        <label for="search">Search</label>
-        <input id="search" type="search" pattern=".*\S.*" required>
-        <span class="caret"></span>
-    </form>
+<body id="top">
 
-    <div class="login"></div>
-    <hr>
+    <!-- 
+    - #HEADER
+    -->
 
-    <!-- Movie Data -->
+    <header class="header" data-header>
+        <div class="container">
+            <div class="overlay" data-overlay></div>
+            <a href="../user/userhome.html" class="logo">
+                <img src="../assets/image/logo.svg" alt="Filmlane logo">
+            </a>
 
-    <div id="h1">
-        <h1>Movie</h1>
-    </div>
-    <form>
-        <label for="search">Search</label>
-        <input id="searchMovie" type="search" pattern=".*\S.*" required>
-        <span class="caret"></span>
-    </form>
+            <div class="header-actions">
 
-    <div class="Movie-data"></div>
-    <hr>
+                <button class="search-btn">
+                    <ion-icon name="search-outline">
+                        <input class="search searchMovie" type="search" pattern=".*\S.*" required>
+                    </ion-icon>
+                </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
+                <div class="lang-wrapper">
+                    <label for="language">
+                        <ion-icon name="globe-outline"></ion-icon>
+                    </label>
 
-    <script src="../assets/js/userhome.js"></script>
+                    <select name="language" id="language">
+                        <option value="en">EN</option>
+                        <option value="au">AU</option>
+                        <option value="ar">AR</option>
+                        <option value="tu">TU</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+                    </a>
+
+                    <button class="menu-close-btn" data-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+
+                </div>
+
+                <ul class="navbar-list">
+
+                    <li>
+                        <a href="../user/userhome.html" class="navbar-link">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="MovieDetalis.html" class="navbar-link">Movie</a>
+                    </li>
+
+                    <li>
+                        <a href="DisplayCinemadata.html" class="navbar-link">Cinema</a>
+                    </li>
+
+                    <li>
+                        <a href="Time.html" class="navbar-link">Time & Seat</a>
+                    </li>
+
+                </ul>
+
+                <ul class="navbar-social-list">
+
+                    <li>
+                        <a href="#" class="navbar-social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="navbar-social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="navbar-social-link">
+                            <ion-icon name="logo-pinterest"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="navbar-social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="navbar-social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- 
+        - #UPCOMING
+    -->
+    <main>
+
+        <article>
+
+            <!-- 
+            - #HERO
+            -->
+
+            <section class="hero">
+                <div class="container">
+
+                    <div class="hero-content">
+
+                        <p class="hero-subtitle">Filmlane</p>
+
+                        <h1 class="h1 hero-title">
+                            Unlimited <strong>Movie</strong>, TVs Shows, & More.
+                        </h1>
+
+                        <div class="meta-wrapper">
+
+                            <div class="badge-wrapper">
+                                <div class="badge badge-fill">PG 18</div>
+
+                                <div class="badge badge-outline">HD</div>
+                            </div>
+
+                            <div class="ganre-wrapper">
+                                <a href="#">Romance,</a>
+
+                                <a href="#">Drama</a>
+                            </div>
+
+                            <div class="date-time">
+
+                                <div>
+                                    <ion-icon name="calendar-outline"></ion-icon>
+
+                                    <time datetime="2022">2022</time>
+                                </div>
+
+                                <div>
+                                    <ion-icon name="time-outline"></ion-icon>
+
+                                    <time datetime="PT128M">128 min</time>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="btn btn-primary">
+                            <ion-icon name="play"></ion-icon>
+
+                            <span>Watch now</span>
+                        </button>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="upcoming">
+                <div class="container">
+                    <div class="flex-wrapper">
+                        <div class="title-wrapper">
+                            <p class="section-subtitle">Online Streaming</p>
+                            <h2 class="h2 section-title">All Cinema</h2>
+                        </div>
+                    </div>
+
+                    <div class="login"></div>
+                </div>
+            </section>
+
+            <!-- 
+        - #TOP RATED
+        -->
+
+            <section class="upcoming top-rated">
+                <div class="container">
+
+                    <div class="flex-wrapper">
+                        <div class="title-wrapper">
+                            <p class="section-subtitle">Online Streaming</p>
+                            <h2 class="h2 section-title">Top Rated Moviess</h2>
+                        </div>
+                    </div>
+
+                    <div class="Movie-data"></div>
+                </div>
+            </section>
+            <main>
+
+                <!-- 
+    - #FOOTER
+		-->
+
+                <footer class="footer">
+
+                    <div class="footer-top">
+                        <div class="container">
+
+                            <div class="footer-brand-wrapper">
+
+                                <a href="../index.html" class="logo">
+                                    <img src="../assets/image/logo.svg" alt="Filmlane logo">
+                                </a>
+
+                                <ul class="footer-list">
+
+                                    <li>
+                                        <a href="../user/userhome.html" class="navbar-link">Home</a>
+                                    </li>
+                
+                                    <li>
+                                        <a href="MovieDetalis.html" class="navbar-link">Movie</a>
+                                    </li>
+                
+                                    <li>
+                                        <a href="DisplayCinemadata.html" class="navbar-link">Cinema</a>
+                                    </li>
+                
+                                    <li>
+                                        <a href="Time.html" class="navbar-link">Time & Seat</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <div class="quicklink-wrapper">
+
+                                <ul class="quicklink-list">
+
+                                    <li>
+                                        <a href="#" class="quicklink-link">Faq</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="quicklink-link">Help center</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="quicklink-link">Terms of use</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="quicklink-link">Privacy</a>
+                                    </li>
+
+                                </ul>
+
+                                <ul class="social-list">
+
+                                    <li>
+                                        <a href="#" class="social-link">
+                                            <ion-icon name="logo-facebook">
+                                                <div class="icon-inner">
+                                                    <i class="fa-brands fa-facebook"></i>
+                                                </div>
+                                            </ion-icon>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="social-link">
+                                            <ion-icon name="logo-twitter">
+                                                <div class="icon-inner">
+                                                    <i class="fa-brands fa-twitter"></i>
+                                                </div>
+                                            </ion-icon>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="social-link">
+                                            <ion-icon name="logo-pinterest">
+                                                <div class="icon-inner">
+                                                    <i class="fa-brands fa-pinterest"></i>
+                                                </div>
+                                            </ion-icon>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" class="social-link">
+                                            <ion-icon name="logo-linkedin">
+                                                <div class="icon-inner">
+                                                    <i class="fa-brands fa-linkedin"></i>
+                                                </div>
+                                            </ion-icon>
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom">
+                        <div class="container">
+
+                            <p class="copyright">
+                                &copy; 2023 <a href="#">codewithsahil</a>. All Rights Reserved
+                            </p>
+
+                            <img src="../assets/image/footer-bottom-img.png" alt="Online banking companies logo"
+                                class="footer-bottom-img">
+                        </div>
+                    </div>
+
+                </footer>
+
+                <script src="../assets/js/userhome.js"></script>
+                <script src="../assets/js/script.js"></script>
 </body>
 
 </html>

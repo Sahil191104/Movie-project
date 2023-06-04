@@ -4,20 +4,50 @@ const handleOnload = () => {
 
     let movieData = localData.filter((value, i) => value.mid === sessiondata);
 
-    print = '<div class="row">';
+    print = '<div class="container">';
     movieData.map((value) => {
-        print += '<div class="col-lg-3 col-2">';
-        print += '<div class="card">';
-        print += '<img class="img-fluid" src="' + value.poster + '" style="width: 100%; object-fit: cover; object-position: top; height: 350px;  aspect-ratio"; border-radius: 10px;">';
-        print += '<div class="card-body">';
-        print += '<div class="flexdiv">' + '<h6 class="card-title">' + value.name + '</h6>' + '</div>';
-        print += '<div class="flexdiv">' + '<span>' + value.desc + '</span>' + '</div>';
-        print += `<div class="flexdiv"><a href="DisplayCinemadata.html" class="btn btn-primary" onclick="Newciname('${value.name}')" />Book Now</a>`;
-        print += '</div></div></div>';
+        print += '<figure class="movie-detail-banner">';
+        print += '<a href="">';
+        print += '<img src="' + value.poster + '" alt="Free guy movie poster">';
+        print += '<button class="play-btn">';
+        print += '<ion-icon name="play-circle-outline"></ion-icon>';
+        print += '</button>';
+        print += '</a>';
+        print += '</figure>';
+        print += '<div class="movie-detail-content">';
+        print += '<h1 class="h1 detail-title">' + value.name + '</h1>';
+        print += '<div class="meta-wrapper">';
+        print += '<div class="badge-wrapper">';
+        print += '<div class="badge badge-fill">PG 13</div>';
+        print += '<div class="badge badge-outline">HD</div>';
+        print += '</div>';
+        print += '<div class="date-time">';
+        print += '<i class="fa-solid fa-timer"></i>';
+        print += '<div>';
+        print += '<time>' + value.time + '</time>';
+        print += '</div>';
+        print += '</div>';
+        print += '</div>';
+        print += '<p class="storyline">' + value.desc + '</p>';
+        print += '<div class="details-actions">';
+        print += '<button class="share">';
+        print += '<ion-icon name="share-social"><i class="fa-sharp fa-solid fa-share-nodes"></i></ion-icon>';
+        print += '<span>Share</span>';
+        print += '</button>';
+        print += '<div class="title-wrapper">';
+        print += '<p class="title">Prime Video</p>';
+        print += '<p class="text">Streaming Channels</p>';
+        print += '</div>';
+        print += '<button class="btn btn-primary">';
+        print += '<ion-icon name="play"></ion-icon>';
+        print += `<a href="DisplayCinemadata.html" onclick="Newciname('${value.name}')" />Book Now</a>`;
+        print += '</button>';
+        print += '</div>';
+        print += '</div>';
     });
     print += '</div>';
 
-    document.getElementById("displaydata").innerHTML = print;
+    document.querySelector(".movie-detail").innerHTML = print;
 };
 
 const Newciname = (mname) => {

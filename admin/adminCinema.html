@@ -10,46 +10,60 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../assets/css/adminCinema.css">
+    <title>Cinema</title>
+    <!-- 
+        - favicon
+        -->
+
+        <link rel="stylesheet" href="../assets/css/adminCinema.css">
+    
+    <link rel="shortcut icon" href="../favicon.svg" type="/image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div class="admin">
         <div class="haed">
+            <!-- <label><img src="../assets/image/logo.svg" alt="Filmlane logo"></label> -->
             <h2>Admin</h2>
         </div>
-        <button onclick="cinema()">Add Cinema</button>
-        <button onclick="Movie()">Add Movie</button>
-        <button onclick="seat()">Add Seat</button>
+        <button id="btn" onclick="cinema()">Add Cinema</button>
+        <button id="btn" onclick="Movie()">Add Movie</button>
+        <button id="btn" onclick="seat()">Add Seat</button>
     </div>
-    
+
     <div class="main" id="formcinema">
         <div class="cinema">
             <form id="cinema_form">
-                <label>Cinema</label>
+                <label><img src="../assets/image/logo.svg" alt="Filmlane logo"></label>
                 <input type="text" name="name" placeholder="Name" required="" id="name">
                 <input type="text" name="locaton" placeholder="Locaton" required="" id="locaton">
                 <input type="text" name="facilites" placeholder="Facilites" required="" id="facilites">
                 <input type="submit" id="button">
             </form>
         </div>
+        <div id="cinematable">
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Locaton</th>
+                        <th scope="col">Facilites</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div id="cinematable">
-        <table id="table1">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Locaton</th>
-                    <th scope="col">Facilites</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody">
-            </tbody>
-        </table>
-    </div>
+
 
     <script src="../assets/js/adminCinema.js"></script>
 

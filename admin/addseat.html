@@ -10,24 +10,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Seat</title>
+    <!-- 
+                - favicon
+                -->
+
     <link rel="stylesheet" href="../assets/css/addseat.css">
+
+    <link rel="shortcut icon" href="../favicon.svg" type="/image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <div class="admin">
         <div class="haed">
+            <!-- <label><img src="../assets/image/logo.svg" alt="Filmlane logo"></label> -->
             <h2>Admin</h2>
         </div>
-        <button onclick="cinema()">Add Cinema</button>
-        <button onclick="Movie()">Add Movie</button>
-        <button onclick="seat()">Add Seat</button>
+        <button id="btnhead" onclick="cinema()">Add Cinema</button>
+        <button id="btnhead" onclick="Movie()">Add Movie</button>
+        <button id="btnhead" onclick="seat()">Add Seat</button>
     </div>
 
     <div class="main" id="FormMovie">
         <div class="MovieFom">
-            <h3>seat</h3>
             <form id="seat_form">
+                <label><img src="../assets/image/logo.svg" alt="Filmlane logo"></label>
                 <select name="Cinema" id="cinema-name" onchange="handlseat()">
                     <option value="cinema">Cinema</option>
                 </select>
@@ -36,37 +49,36 @@
                     <option value="Movie">Movie</option>
                 </select>
 
-                <div id="time-seat">
-                    <select name="Time" id="Time-name">
-                        <option value="time">Time</option>
-                    </select>
+                <select name="Time" id="Time-name">
+                    <option value="time">Time</option>
+                </select>
 
-                    <input type="number" id="moname" name="Seat" placeholder="Seat">
-                </div>
+                <input type="number" id="moname" name="Seat" placeholder="Seat">
 
                 <input type="number" id="price" name="Price" placeholder="Price">
 
                 <input type="submit" id="btnseat">
             </form>
         </div>
+        <div class="main1" id="FormMovie1">
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th scope="col">Cinema Name</th>
+                        <th scope="col">Movie Name</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Seat</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <div class="main1" id="FormMovie1">
-        <table id="table1">
-            <thead>
-                <tr>
-                    <th scope="col">Cinema Name</th>
-                    <th scope="col">Movie Name</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Seat</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody id="tablebody">
-            </tbody>
-        </table>
-    </div>
+
 
     <script src="../assets/js/addseat.js"></script>
 

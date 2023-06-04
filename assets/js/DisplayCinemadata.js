@@ -10,29 +10,32 @@ const handleOnload = () => {
         console.log(temp);
 
         let localdata = JSON.parse(localStorage.getItem("cinema"));
-        print = '<div class="row">';
+        print = '<ul class="movies-list has-scrollbar">';
         localdata.map((value) => {
             for (let i = 0; i < temp.length; i++) {
                 // console.log(temp.length);
                 // console.log(value.id);
                 // console.log(parseInt(temp[i]));
                 if (value.id === parseInt(temp[i])) {
-                    console.log("vfvf");
-                    print += '<div class="col-lg-3 col-2">';
-                    print += '<div class="card bg-body-tertiary">';
-                    print += '<div class="card-body">';
-                    print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Name: </h6>' + '<span>' + value.name + '</span>' + '</div>';
-                    print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Location: </h6>' + '<span>' + value.locaton + '</span>' + '</div>';
-                    print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Facility: </h6>' + '<span>' + value.facilites + '</span>' + '</div>';
-                    print += '<div class="flexdiv">' + '<a href="Time.html" onclick="NewDataTime('+ value.id +')" class="btn btn-primary">Time List</a>' + '</div>';
-                    print += '</div></div></div>';
-                    console.log(value.id);
+                    print += '<li>';
+                    print += '<div class="movie-card">';
+                    print += '<div class="title-wrapper">';
+                    print += '<a href="Time.html" onclick="NewDataTime('+ value.id +')">';
+                    print += '<h3 class="card-title">Cinema Name : <time>' + value.name + '</time></h3>';
+                    print += '<br>';
+                    print += '<h3 class="card-title">Cinema Location : <time>' + value.locaton + '</time></h3>';
+                    print += '<br>';
+                    print += '<h3 class="card-title">Cinema Facility : <time>' + value.facilites + '</time></h3>';
+                    print += '</a>';
+                    print += '</div>';
+                    print += '</div>';
+                    print += '</li>';
                 };
             };
         });
-        print += '</div>';
+        print += '</ul>';
         console.log(print);
-        document.getElementById("displaydatacinama").innerHTML = print;
+        document.querySelector(".displaydatacinama").innerHTML = print;
     });
 };
 
