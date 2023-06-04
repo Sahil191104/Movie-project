@@ -1,23 +1,28 @@
-let search = document.getElementById("search");
-let searchMovie = document.getElementById("searchMovie");
+let search = document.querySelector(".search");
+let searchMovie = document.querySelector(".searchMovie");
 
 const search_CLUE = () => {
     let localdata = JSON.parse(localStorage.getItem("cinema"));
 
-    print = '<div class="row">';
+    print = '<ul class="movies-list has-scrollbar">';
     localdata.map((value) => {
         if (value.name.includes(search.value) || value.locaton.includes(search.value) || value.facilites.includes(search.value) || value.name.toLowerCase().includes(search.value) || value.locaton.toLowerCase().includes(search.value) || value.facilites.toLowerCase().includes(search.value)) {
-            print += '<div class="col-lg-3 col-2" id="col' + value.id + ' ">';
-            print += '<div class="card bg-body-tertiary">';
-            print += '<div class="card-body">';
-            print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Name: </h6>' + '<span>' + value.name + '</span>' + '</div>';
-            print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Location: </h6>' + '<span>' + value.locaton + '</span>' + '</div>';
-            print += '<div class="flexdiv">' + '<h6 class="card-title">Cinema Facility: </h6>' + '<span>' + value.facilites + '</span>' + '</div>';
-            print += '<div class="flexdiv">' + '<a href="CinemaDetails.html" onclick="NewDatacinema('+ value.id +')" class="btn btn-primary">Cinema Details</a>' + '</div>';
-            print += '</div></div></div>';
+            print += '<li>';
+            print += '<div class="movie-card">';
+            print += '<div class="title-wrapper">';
+            print += '<a href="CinemaDetails.html" onclick="NewDatacinema('+ value.id +')">';
+            print += '<h3 class="card-title">Cinema Name : <time>' + value.name + '</time></h3>';
+            print += '<br>';
+            print += '<h3 class="card-title">Cinema Location : <time>' + value.locaton + '</time></h3>';
+            print += '<br>';
+            print += '<h3 class="card-title">Cinema Facility : <time>' + value.facilites + '</time></h3>';
+            print += '</a>';
+            print += '</div>';
+            print += '</div>';
+            print += '</li>';
         };
     });
-    print += '</div>';
+    print += '</ul>';
 
     document.querySelector(".login").innerHTML = print;
 }
@@ -25,22 +30,22 @@ const search_CLUE = () => {
 const search_Movie = () => {
     let localData = JSON.parse(localStorage.getItem("Movie"));
 
-    print = '<div class="row1">';
+    print = '<ul class="movies-list as-scrollbar">';
     localData.map((value) => {
         if (value.name.includes(searchMovie.value) || value.desc.includes(searchMovie.value) || value.name.toLowerCase().includes(searchMovie.value) || value.desc.toLowerCase().includes(searchMovie.value)) {
-            print += '<div class="col-lg-3 col-2" id="col' + value.id + ' ">';
-            print += '<div class="card">';
-            print += '<div class="container">';
-            print += '<div class="child">';
-            print += '<img class="img-fluid" src="' + value.poster + '" style="width: 100%; object-fit: cover; object-position: top; height: 450px;  aspect-ratio";">';
-            print += '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')" class="btn btn-primary">'+ '<span>' + value.name + '</span>' +'</a>';
+            print += '<li>';
+            print += '<div class="movie-card">';
+            print += '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')">';
+            print += '<figure class="card-banner">';
+            print += '<img src="'+ value.poster +'" alt="The Northman movie poster">';
+            print += '</figure>';
+            print += '<h3 class="card-title">' + value.name + '</h3>';
+            print += '</a>';
             print += '</div>';
-            print += '</div>';
-            // print += '<a href="MovieDetalis.html" onclick="NewData('+ value.mid +')" class="btn btn-primary">Movie Details</a>';
-            print += '</div></div>';
+            print += '</li>';
         };
     });
-    print += '</div>';
+    print += '</ul>';
 
     document.querySelector(".Movie-data").innerHTML = print;
 }

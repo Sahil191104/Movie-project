@@ -9,19 +9,10 @@ const loginform = () => {
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
 
-    // if (localdata) {
-    //     localStorage.setItem("register", JSON.stringify([{}]));
-    //     localdata.push({
-    //         logemail:emaillogin,
-    //         logpassword:passwordlogin,
-    //     })
-    //     localStorage.setItem("register", JSON.stringify(localdata));
-    // }
-
     if (emaillogin === 'sahilrupareliya95@gamil.com') {
         if (passwordlogin === 'sahil123') {
             alert('The login successful.');
-            window.location = "../admin/adminhome.html";
+            window.location = "../admin/adminCinema.html";
         };
     } else {
         localdata.map((value) => {
@@ -31,7 +22,7 @@ const loginform = () => {
                 };
             };
         });
-    }
+    };
 
     event.preventDefault();
 }

@@ -16,13 +16,13 @@ const handleTime = () => {
         }
     });
     print += '</div>';
-    document.getElementById("displaydataTime").innerHTML = print;
+    document.querySelector(".displaydataTime").innerHTML = print;
 };
 
 const Newtime = (time) => {
     sessionStorage.setItem("time", JSON.stringify(time));
     console.log(time);
-    document.getElementById("displaydataSeat").style.display = "flex";
+    document.querySelector(".displaydataSeat").style.display = "flex";
     handleSeat();
 }
 
@@ -50,12 +50,11 @@ const handleSeat = () => {
                 print += '</div>';
             }
         };
-
-        print += '<div class="flexdiv">' + '<input type="number" placeholder="Price" disabled id="PriceBtn">' + '</div>';
-        print += '<div class="flexdiv">' + '<a onclick="CheckOut(' + value.sid + ')" class="btn btn-primary">Check Out</a>' + '</div>';
+        print += '<p class="text"></span> seats for the total price of Rs. <span id="total">0</span></p>';
+        print += '<div class="flexdiv widhtdiv">' + '<a onclick="CheckOut(' + value.sid + ')" class="btn btn-primary">Check Out</a>' + '</div>';
     });
     print += '</div>';
-    document.getElementById("displaydataSeat").innerHTML = print;
+    document.querySelector(".displaydataSeat").innerHTML = print;
 };
 
 let Seat = [];
@@ -69,10 +68,10 @@ const SeatNew = (sid, i) => {
 
     SIDSeat.map((value) => {
         if (value.seat[i] === 0) {
-            document.getElementById("Seatid" + i).style.background = "white";
-            document.getElementById("Seatid" + i).style.color = "#010101";
+            document.getElementById("Seatid" + i).style.background = "var(--citrine)";
+            document.getElementById("Seatid" + i).style.color = "#000";
             let Total = SIDSeat[0].Price * Seat.length;
-            document.getElementById("PriceBtn").value = Total;
+            document.getElementById("total").innerHTML = Total;
         };
     });
 };
